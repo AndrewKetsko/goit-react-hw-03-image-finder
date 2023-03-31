@@ -1,7 +1,10 @@
-export default function ImageGalleryItem({image}) {
+import { Card, Image } from "./Image.styled";
+
+
+export default function ImageGalleryItem({ image }) {
     return (
-      <li className="gallery-item">
-        <img src={image.webformatURL} alt={image.tags} />
-      </li>
+      <Card>
+        <Image src={image.webformatURL} alt={image.tags} />
+      </Card>
     );
 }
