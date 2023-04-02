@@ -12,3 +12,7 @@ export const Gallery = styled.ul`
   margin-left: auto;
   margin-right: auto;
 `;
+
+export const Message = styled.p`
+  text-align: center;
+`;

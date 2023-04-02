@@ -7,6 +7,3 @@ export const MyApp = styled.div`
   padding-bottom: 24px;
 `;
 
-export const Message = styled.p`
-text-align: center;
-`;
