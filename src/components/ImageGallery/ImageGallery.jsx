@@ -45,17 +45,18 @@ export default class ImageGallery extends Component {
     });
 
     const result = await this.getPhotos();
-
     await this.fullfillState(result);
   };
 
   loadMore = async e => {
     const result = await this.getPhotos();
-
     await this.fullfillState(result);
   };
 
   fullfillState = result => {
+    if (!result) {
+      return;
+    }
     this.setState(prev => {
       return {
         page: prev.page + 1,
@@ -72,9 +73,9 @@ export default class ImageGallery extends Component {
     });
   };
 
-    render() {      
-         const { images, page, total, isLoading } = this.state;
-      return (
+  render() {
+    const { images, page, total, isLoading } = this.state;
+    return (
       <>
         <Gallery>
           {images.map(image => (
@@ -82,11 +83,9 @@ export default class ImageGallery extends Component {
           ))}
         </Gallery>
 
-        {total === 0 &&
-          this.props.search.length > 0 &&
-          !isLoading && (
-            <Message>There are no photos for your request</Message>
-          )}
+        {total === 0 && this.props.search.length > 0 && !isLoading && (
+          <Message>There are no photos for your request</Message>
+        )}
 
         {page > 1 &&
           isLoading === false &&
