@@ -89,7 +89,7 @@ export default class ImageGallery extends Component {
 
         {page > 1 &&
           isLoading === false &&
-          total - page * refs.parameters.per_page > 0 && (
+          total - (page-1) * refs.parameters.per_page > 0 && (
             <Button onClick={this.loadMore} />
           )}
 
